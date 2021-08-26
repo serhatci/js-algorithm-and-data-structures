@@ -25,7 +25,7 @@
 // console.log(same([1, 2, 3], [1, 4, 3]));
 
 // Frequency pattern solution
-// first create 2 objects that counts the frequency of elements in each array\\
+// first create 2 objects that counts the frequency of elements in each array
 // than compare elements and their frequencies
 
 function same(arr1, arr2) {
