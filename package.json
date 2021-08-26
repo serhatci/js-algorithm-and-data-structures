@@ -1,0 +1,25 @@
+{
+  "name": "js-algorithm-and-data-structures",
+  "version": "1.0.0",
+  "description": "My own studies on JavaScript algorithm and data structures",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/serhatci/js-algorithm-and-data-structures.git"
+  },
+  "keywords": [
+    "JavaScript",
+    "Algorithms",
+    "Data",
+    "structures"
+  ],
+  "author": "serhat ciftci",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/serhatci/js-algorithm-and-data-structures/issues"
+  },
+  "homepage": "https://github.com/serhatci/js-algorithm-and-data-structures#readme"
+}
