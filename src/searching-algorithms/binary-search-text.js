@@ -5,7 +5,10 @@ function binarySearch(arr, val) {
   let min = 0;
   let middleIndex = Math.floor((max + min) / 2);
 
-  while (val !== arr[middleIndex].substring(0, val.length)) {
+  while (
+    val !== arr[middleIndex].substring(0, val.length) ||
+    val == arr[middleIndex - 1].substring(0, val.length)
+  ) {
     if (val > arr[middleIndex].substring(0, val.length)) {
       min = middleIndex + 1;
     } else {
@@ -14,16 +17,25 @@ function binarySearch(arr, val) {
     middleIndex = Math.floor((max + min) / 2);
   }
 
-  return arr[middleIndex];
+  return [arr[middleIndex], middleIndex];
 }
 
 const arr = [
   'achen',
   'berlin',
   'düseldorf',
+  'düseldorf',
+  'düseldorf',
+  'düseldorf',
   'frankfurt',
+  'frankfurt',
+  'frankfurt',
+  'frankfurt',
+  'giessen',
+  'giessen',
+  'giessen',
   'giessen',
   'hamburg',
 ];
 
-console.log(binarySearch(arr, 'ham'));
+console.log(binarySearch(arr, 'f'));
