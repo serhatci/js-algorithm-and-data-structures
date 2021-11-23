@@ -9,6 +9,7 @@ class SinglyLinkedList {
   constructor() {
     this.length = 0;
     this.head = null;
+    this.tail = null;
   }
 
   getAt(index) {
@@ -24,28 +25,38 @@ class SinglyLinkedList {
     }
   }
 
-  insertHead(value) {
-    this.head = new Node(value, this.head);
+  push(value) {
+    const newNode = new Node(value);
+
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      this.tail.next = newNode;
+      this.tail = newNode;
+    }
+
     this.length++;
   }
 
-  insertTail(value) {
-    if (!this.head) {
-      this.head = new Node(value);
+  unshift(value) {
+    const newNode = new Node(value);
+
+    if (!this.tail) {
+      this.head = newNode;
+      this.tail = newNode;
     } else {
-      let tail = this.head;
-      while (tail.next !== null) {
-        tail = tail.next;
-      }
-      tail.next = new Node(value);
+      newNode.next = this.head;
+      this.head = newNode;
     }
+
     this.length++;
   }
 
   insertAtIndex(value, index) {
-    if (index == 0) return this.insertHead(value);
+    if (index == 0) return this.push(value);
 
-    if (index == this.length - 1) return this.insertTail(value);
+    if (index == this.length - 1) return this.push(value);
 
     const newNode = new Node(value);
     const previous = this.getAt(index - 1);
@@ -80,10 +91,10 @@ class SinglyLinkedList {
 
 let linkedList = new SinglyLinkedList();
 
-linkedList.insertHead(10);
-linkedList.insertHead(15);
-linkedList.insertHead(20);
-linkedList.insertTail(5);
+linkedList.push(10);
+linkedList.push(15);
+linkedList.push(20);
+linkedList.unshift(5);
 linkedList.insertAtIndex(10000, 1);
 linkedList.insertAtIndex(25, 0);
 linkedList.insertAtIndex(0, 5);
