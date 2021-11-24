@@ -86,6 +86,7 @@ class SinglyLinkedList {
 
   deleteLinkedList() {
     this.head = null;
+    this.tail = null;
   }
 }
 
