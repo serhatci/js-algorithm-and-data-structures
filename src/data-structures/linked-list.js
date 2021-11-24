@@ -39,6 +39,16 @@ class SinglyLinkedList {
     this.length++;
   }
 
+  pop() {
+    if (!this.head) return;
+    if (this.length == 1) return this.shift();
+
+    const previous = this.getAt(this.length - 2);
+    previous.next = null;
+
+    this.length--;
+  }
+
   unshift(value) {
     const newNode = new Node(value);
 
@@ -51,6 +61,13 @@ class SinglyLinkedList {
     }
 
     this.length++;
+  }
+
+  shift() {
+    if (!this.head) return;
+
+    this.head = this.head.next;
+    this.length--;
   }
 
   insertAtIndex(value, index) {
@@ -67,23 +84,6 @@ class SinglyLinkedList {
     this.length++;
   }
 
-  deleteHead() {
-    if (!this.head) return;
-
-    this.head = this.head.next;
-    this.length--;
-  }
-
-  deleteTail() {
-    if (!this.head) return;
-    if (this.length == 1) return this.deleteHead();
-
-    const previous = this.getAt(this.length - 2);
-    previous.next = null;
-
-    this.length--;
-  }
-
   deleteLinkedList() {
     this.head = null;
   }
@@ -98,8 +98,8 @@ linkedList.unshift(5);
 linkedList.insertAtIndex(10000, 1);
 linkedList.insertAtIndex(25, 0);
 linkedList.insertAtIndex(0, 5);
-linkedList.deleteHead();
-linkedList.deleteTail();
+linkedList.shift();
+linkedList.pop();
 
 console.log(linkedList.length);
 console.dir(linkedList, { depth: null });
