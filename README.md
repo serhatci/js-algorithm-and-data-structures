@@ -23,3 +23,8 @@ Big O of Stacks & Queues:
 - Removal: O(1)
 - Search: O(N)
 - Access: O(N)
+
+Big O of Binary Search Tree:
+
+- Insertion : O(1)
+- Search: O(log n)
